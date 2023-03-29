@@ -27,7 +27,7 @@ public class LimelightSubsystem extends SubsystemBase {
   private int pipe_number = 1;
   private double distance = 160;
   private final PIDController move_Controller = new PIDController(0.01, 0, 0);
-  private final PIDController turn_Controller = new PIDController(0.1, 0, 0);
+  private final PIDController turn_Controller = new PIDController(0.06, 0, 0);
   private double goal_distance;
 
 
@@ -68,8 +68,10 @@ public class LimelightSubsystem extends SubsystemBase {
   }
 
   public double get_movePID(){
-    
+    if(y_offset != 0)
     return -constraints(move_Controller.calculate(distance,goal_distance),0.5);
+    else
+    return 0;
   }
   public double get_turnPID(){
     return constraints(turn_Controller.calculate(x_offset,0),0.5);

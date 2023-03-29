@@ -15,7 +15,7 @@ import frc.robot.Subsystems.LimelightSubsystem;
 
 
 // 自瞄自放
-public class AutoCommandV3 extends CommandBase {
+public class AutoCommandV4 extends CommandBase {
 
   private final BaseSubsystem baseSubsystem;
   private final ArmSubsystem armSubsystem;
@@ -38,7 +38,7 @@ public class AutoCommandV3 extends CommandBase {
   private double turn = 0;
 
 
-  public AutoCommandV3(ArmSubsystem _armSubsystem,BaseSubsystem _BaseSubsystem, LimelightSubsystem _limelightSubsystem, ArmCommand _outCommnad1,ArmCommand _outCommand2, ArmCommand _outCommand3, ArmCommand _inCommand) {
+  public AutoCommandV4(ArmSubsystem _armSubsystem,BaseSubsystem _BaseSubsystem, LimelightSubsystem _limelightSubsystem, ArmCommand _outCommnad1,ArmCommand _outCommand2, ArmCommand _outCommand3, ArmCommand _inCommand) {
     this.baseSubsystem = _BaseSubsystem;
     this.limelightSubsystem = _limelightSubsystem;
     this.outCommand1 = _outCommnad1;
@@ -81,11 +81,11 @@ public class AutoCommandV3 extends CommandBase {
       }
     }
     if(put_high && !move500){
-      double error = 480 - baseSubsystem.getBasePosition();
+      double error = 490 - baseSubsystem.getBasePosition();
       SmartDashboard.putNumber("error", error);
       if(Math.abs(error) > 12){
-        move = baseSubsystem.get_movePID(514.5);
-        turn = baseSubsystem.get_turnPID(-4);
+        move = baseSubsystem.get_movePID(520);
+        turn = baseSubsystem.get_turnPID(-16);
         outCommand2.schedule();
         armSubsystem.intake_setSpeed(mode, in);
       }
@@ -109,7 +109,7 @@ public class AutoCommandV3 extends CommandBase {
     if(turn180 && !getTarget)
     {
       move = 0.65;
-      turn = baseSubsystem.get_turnPID(170);
+      turn = baseSubsystem.get_turnPID(165);
       armSubsystem.intake_setSpeed(0.07, mode, in);
       if(limelightSubsystem.get_y_offset()!= 0 && time_now  > 1.5){
         getTarget = true;

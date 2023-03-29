@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.Commands.ArmCommand;
 import frc.robot.Commands.AutoCommandV1;
 import frc.robot.Commands.AutoCommandV3;
+import frc.robot.Commands.AutoCommandV4;
 import frc.robot.Commands.BaseCommand;
 import frc.robot.Commands.IntakeCommand;
 import frc.robot.Subsystems.ArmSubsystem;
@@ -78,6 +79,7 @@ public class RobotContainer {
   // auto Command
   private final AutoCommandV1  autoCommandV1 = new AutoCommandV1(baseSubsystem);
   private final AutoCommandV3 autoCommandV3 = new AutoCommandV3(armSubsystem,baseSubsystem, limelightSubsystem,upper_cone_ArmCommand, ground_cone_ArmCommand,middle_cone_ArmCommand ,primitiveCone_ArmCommand);
+  private final AutoCommandV4 autoCommandV4 = new AutoCommandV4(armSubsystem, baseSubsystem, limelightSubsystem, upper_cube_ArmCommand, ground_cone_ArmCommand, middle_cone_ArmCommand, primitiveCone_ArmCommand);
   // private final ArmCommand inCommand = upper_cone_ArmCommand;
   // private final ArmCommand outCommand = upper_cone_ArmCommand;
   // private final AutoCommandV2 autoCommandV2 = new AutoCommandV2(baseSubsystem, limelightSubsystem, inCommand, outCommand);
@@ -99,7 +101,7 @@ public class RobotContainer {
   }
 
   public Command get_autoCommand(){
-    return autoCommandV3;
+    return autoCommandV4;
   }
 
   public Command get_intakeCommand(){

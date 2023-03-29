@@ -62,7 +62,7 @@ public class AutoCommandV2 extends CommandBase {
     }
     else if(time_now > 5 && time_now < 10 ){
       output = -0.55;
-      if(time_now < 8){
+      if(time_now < 6){
         inCommand.schedule();
         armSubsystem.intake_setSpeed(0);
       }

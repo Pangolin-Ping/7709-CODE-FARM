@@ -43,7 +43,7 @@ public class BaseSubsystem extends SubsystemBase {
   private final PIDController brake_PIDController = new PIDController(0.3, 0, 0);
   private final PIDController balance_PIDController = new PIDController(0.1, 0, 0);
   private final PIDController tunrPIDController = new PIDController(0.01, 0, 0);
-  private final PIDController movePIDController = new PIDController(0.008, 0, 0);
+  private final PIDController movePIDController = new PIDController(0.004, 0, 0);
 
   //position
   private double left_position;
@@ -74,7 +74,7 @@ public class BaseSubsystem extends SubsystemBase {
   }
   
   public final double get_movePID(double goalDistance){
-    return constraint(movePIDController.calculate(left_position, goalDistance), 0.5);
+    return constraint(movePIDController.calculate(left_position, goalDistance), 0.65);
   }
 
   public void resetencoder(){
