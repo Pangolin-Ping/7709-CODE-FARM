@@ -134,4 +134,31 @@ public class Constants {
         this.outPIDController = _outPIDController;
         }
     }
+
+
+    //角度數值越負越往右
+    //陀螺儀逆時鐘為正
+    public enum AutoMode{
+        blue_right_cone(480, 514.5,-4,170),
+        blue_right_cube(490, 520, -16, 165),
+        blue_left_cone(0,0,0,0),
+        blue_left_cube(0,0,0,0),
+        red_right_cone(0,0,0,0),
+        red_right_cube(0,0,0,0),
+        red_left_cone(0,0,0,0),
+        red_left_cube(0,0,0,0);
+
+        public final double error_distance;
+        public final double PID_distance;
+        public final double first_angle;
+        public final double second_angle;
+
+        AutoMode(double _error_distance, double _PID_distance, double _first_angle, double _second_angle){
+            this.error_distance = _error_distance;
+            this.PID_distance = _PID_distance;
+            this.first_angle = _first_angle;
+            this.second_angle = _second_angle;
+        }
+
+    }
 }

@@ -37,7 +37,7 @@ public class BaseCommand extends CommandBase {
 
   @Override
   public void initialize() {
-    baseSubsystem.balance_state = true;
+    baseSubsystem.set_balanceState(true);
   }
 
   @Override
@@ -55,7 +55,7 @@ public class BaseCommand extends CommandBase {
       SmartDashboard.putNumber("turnPID", turn);
     }
     else{
-      baseSubsystem.balance_state = true;
+      baseSubsystem.set_balanceState(true);
       move = -stick.getY()*0.5;//75
       turn = -stick.getZ()*0.5;//58
 

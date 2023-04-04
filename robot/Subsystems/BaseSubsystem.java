@@ -49,7 +49,7 @@ public class BaseSubsystem extends SubsystemBase {
   private double left_position;
 
   // balance_state
-  public boolean balance_state = true;
+  private boolean balance_state = true;
 
   // brake goal
   private double brake_goal = left_position;
@@ -109,7 +109,7 @@ public class BaseSubsystem extends SubsystemBase {
    */
   public double get_balancePID(){
     double output;
-    if(Math.abs(balance_angle)<13){
+    if(Math.abs(balance_angle)<14){
       if(balance_state){
         brake_goal = left_position;
         balance_state = false;
@@ -132,6 +132,7 @@ public class BaseSubsystem extends SubsystemBase {
   }
 
     
+  
   /**
    * MotorController ininialize
    */

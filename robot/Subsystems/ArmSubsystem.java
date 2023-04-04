@@ -33,8 +33,8 @@ public class ArmSubsystem extends SubsystemBase {
   private final AnalogInput potentiometer_rear = new AnalogInput(1);
 
   // setting parameter
-  private final double zero_po_arm = 4038; //4358
-  private final double zero_po_rear = 1733;  //3671
+  private final double zero_po_arm = 4043; //4358
+  private final double zero_po_rear = 1329;  //3671
   private final double convert_rate_arm = 0.11798345;
   private final double convert_rate_rear = 0.11798345;
   private double arm_position = 0;

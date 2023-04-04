@@ -4,21 +4,32 @@
 
 package frc.robot;
 
+import edu.wpi.first.cameraserver.CameraServer;
+import edu.wpi.first.cscore.UsbCamera;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import edu.wpi.first.wpilibj2.command.Commands;
 
 public class Robot extends TimedRobot {
-
   private RobotContainer robotContainer = new RobotContainer();
   private Command baseCommand = robotContainer.get_baseCommand();
   private Command autoCommand = robotContainer.get_autoCommand();
   private Command intakeCommand = robotContainer.get_intakeCommand();
+  private UsbCamera camera = CameraServer.startAutomaticCapture();
+
   // private Command armCommand;
+
+  private void setCamera(){
+    camera.setBrightness(0); // 亮度
+    camera.setFPS(90); //跟新綠 每秒幾張照片
+    camera.setExposureManual(0); 
+    camera.setExposureAuto();
+    camera.setResolution(320, 240); //解析度
+  }
 
   @Override
   public void robotInit() {
+    setCamera();
   }
 
   @Override
